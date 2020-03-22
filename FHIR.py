@@ -26,7 +26,7 @@ class FHIR_response():
     def get_all_patients(self):
         res = requests.get('{}/Patient'.format(self.__FHIR_BASE_URL), headers=self.__auth_header)
         json = res.json()
-        result = self.get_all_patients_page(json, [])
+        result = self.get_patients_list(json, [])
 
         patients = []
         for patient_json_data in result:
@@ -34,16 +34,16 @@ class FHIR_response():
                 patients.append(Patient.Create_Patient().Test_Jsonfile(patient_data))
         return patients
 
-    def get_all_patients_page(self, json, list):
+    def get_patients_list(self, json, patient_list):
         if (json == None):
             return
         relation = json["link"][0]["relation"]
-        list.append(json)
+        patient_list.append(json)
 
         if (relation == "next"):
             url = json["link"][0]["url"]
             res = requests.get(url, headers=self.__auth_header)
             json = res.json()
-            return self.get_all_patients_page(json, list)
+            return self.get_patients_list(json, patient_list)
         else:
-            return list
+            return patient_list
