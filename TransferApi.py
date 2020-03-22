@@ -79,29 +79,3 @@ def testJSONtoPdf(patients):
         pdf.ln(4)
     pdf.output('Patient.pdf', 'F')
 
-
-def TEST():
-    patient = p.Patient()
-    add = p.Address()
-    patient.address = add
-    patient.id ="id"
-    patient.communication ="english"
-    patient.address.postalCode ="edfec"
-    patient.address.country ="uk"
-    patient.address.line = ["dscjnd","cbdehcb"]
-    iden = p.Identifier()
-    iden.value ="dcfdvd"
-    iden.type ="3333"
-
-    iden1 = p.Identifier()
-    iden1.value = "dcfdvd"
-    iden1.type = "333dc3"
-    idenw = [iden,iden1]
-    patient.identifier = idenw
-    line = intergrate_information(patient)
-    print(line)
-    Patients =[]
-    Patients.append(patient)
-    testJSONtoPdf(Patients)
-
-

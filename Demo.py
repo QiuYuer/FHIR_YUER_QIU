@@ -15,7 +15,7 @@ _data = _fhir.get_all_patients()
 @app.route('/')
 def index():
     return """
-    <h1> Simple FHIR API demo </h1>
+    <h1> FHIR API demo </h1>
     """
 
 
