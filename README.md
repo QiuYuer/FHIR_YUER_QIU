@@ -15,3 +15,5 @@ This is a package used to generating letters, forms and documents prefilled from
 | --- |  
 | `GET`  */api/patients/pdf* |  
 | `GET`  */api/patients/doc* |
+
+(Example files have been shown here)
